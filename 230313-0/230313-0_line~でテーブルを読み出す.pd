@@ -1,0 +1,108 @@
+#N canvas 348 124 660 587 12;
+#X msg 26 178 0 \, 1 1000;
+#X obj 26 226 *~ 48000;
+#X obj 38 33 loadbang;
+#X obj 38 81 soundfiler;
+#X obj 108 33 table sample 48000;
+#X obj 26 314 *~ 0.1;
+#X obj 26 338 hip~ 5;
+#X obj 26 362 dac~;
+#X msg 146 178 0 \, 48000 1000;
+#X obj 146 250 tabread~ sample;
+#X floatatom 525 74 5 0 0 1 ms - -;
+#X msg 266 178 0 \, 48000 \$1;
+#X obj 266 250 tabread4~ sample;
+#X msg 525 48 1111;
+#X msg 569 48 901;
+#X obj 524 202 phasor~ 1;
+#X obj 524 226 *~ 48000;
+#X obj 524 250 tabread4~ sample;
+#X obj 524 178 expr 1000/$f1;
+#X obj 266 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 524 274 *~;
+#X obj 550 125 tgl 15 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+;
+#X msg 480 48 1000;
+#X obj 266 202 line~;
+#X msg 396 178 0 \, 48000 \$1;
+#X obj 396 250 tabread4~ sample;
+#X obj 396 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 396 202 vline~;
+#X obj 396 153 f 1111;
+#X obj 266 153 f 1111;
+#X obj 525 23 loadbang;
+#X obj 146 202 line~;
+#X obj 26 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 146 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 598 129 sel 1;
+#X msg 598 153 0;
+#X obj 26 202 line~;
+#X obj 26 250 tabread~ sample;
+#X obj 358 420 *~ 48000;
+#X obj 358 327 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 358 396 vline~;
+#X obj 358 444 tabread4~ sample;
+#X obj 358 347 f 1111;
+#X msg 358 372 0 \, 1 \$1;
+#X msg 38 57 read sample.wav sample;
+#X text 221 100 - - - - - 聴き比べ - - - - -;
+#X text 26 553 !!!! サンプルレートは48kHzで !!!!;
+#X obj 521 385 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 521 405 \; pd dsp \$1;
+#X text 27 496 line~オブジェクトを使ってテーブルに格納されたサウンドファイルを再生する時は注意が必要。
+再生速度を変えたりするならvline~を使う方が望ましい。高音域でノイズが発生しやすい。
+...しかしなぜ？;
+#X connect 0 0 36 0;
+#X connect 1 0 37 0;
+#X connect 2 0 44 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 8 0 31 0;
+#X connect 9 0 5 0;
+#X connect 10 0 18 0;
+#X connect 10 0 28 1;
+#X connect 10 0 29 1;
+#X connect 10 0 42 1;
+#X connect 11 0 23 0;
+#X connect 12 0 5 0;
+#X connect 13 0 10 0;
+#X connect 14 0 10 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 15 0;
+#X connect 19 0 29 0;
+#X connect 20 0 5 0;
+#X connect 21 0 20 1;
+#X connect 21 0 34 0;
+#X connect 22 0 10 0;
+#X connect 23 0 12 0;
+#X connect 24 0 27 0;
+#X connect 25 0 5 0;
+#X connect 26 0 28 0;
+#X connect 27 0 25 0;
+#X connect 28 0 24 0;
+#X connect 29 0 11 0;
+#X connect 30 0 13 0;
+#X connect 31 0 9 0;
+#X connect 32 0 0 0;
+#X connect 33 0 8 0;
+#X connect 34 0 35 0;
+#X connect 35 0 15 1;
+#X connect 36 0 1 0;
+#X connect 37 0 5 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 40 0 38 0;
+#X connect 41 0 5 0;
+#X connect 42 0 43 0;
+#X connect 43 0 40 0;
+#X connect 44 0 3 0;
+#X connect 47 0 48 0;
